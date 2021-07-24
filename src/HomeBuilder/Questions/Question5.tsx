@@ -1,8 +1,13 @@
 import React from "react";
 import {Col} from "react-bootstrap";
+import Action from "../DisplayAction/Action";
 
-const Question5 : React.FC = () =>{
-    return(
+type showNextProps = {
+    showNext: (value: boolean) => void;
+    progress: (value: number) => void;
+}
+const Question5: React.FC<showNextProps> = ({showNext, progress}) => {
+    return (
         <Col>
             <Col xs={12}>
                 <h1 className="qHeader">
@@ -26,25 +31,25 @@ const Question5 : React.FC = () =>{
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                    <label >
+                    <label>
                         $500K to $1 Million
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                    <label >
+                    <label>
                         $1 Million to $1.5 Million
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                    <label >
+                    <label>
                         $1.5 Million to $2 Million
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                    <label >
+                    <label>
                         Over $2 Million
                     </label>
                 </Col>
@@ -52,14 +57,11 @@ const Question5 : React.FC = () =>{
             </Col>
 
             <Col xs={12} className="d-flex pt-4">
-                <h5 className="answer">Next</h5>
-                <h5 className="mx-5">previous</h5>
+                <Action showNext={showNext} progressIn={5} progress={progress}/>
             </Col>
         </Col>
 
 
-
-
     );
-};
+}
 export default Question5;

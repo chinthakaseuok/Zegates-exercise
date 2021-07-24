@@ -1,7 +1,13 @@
 import React from "react";
 import {Col} from "react-bootstrap";
+import Action from "../DisplayAction/Action";
 
-const Question4 : React.FC = () =>{
+type showNextProps = {
+    showNext :(value:boolean) => void;
+    progress :(value:number)=> void;
+}
+const Question4 : React.FC<showNextProps> = ({showNext , progress}) =>{
+
     return(
         <Col>
             <Col xs={12}>
@@ -34,8 +40,7 @@ const Question4 : React.FC = () =>{
             </Col>
 
             <Col xs={12} className="d-flex pt-4">
-                <h5 className="answer">Next</h5>
-                <h5 className="mx-5">previous</h5>
+                <Action showNext={showNext} progressIn={4} progress={progress} />
             </Col>
         </Col>
 
