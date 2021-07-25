@@ -5,8 +5,9 @@ import Action from "../DisplayAction/Action";
 type showNextProps = {
     showNext: (value: boolean) => void;
     progress: (value: number) => void;
+    budget: (value: string) => void;
 }
-const Question5: React.FC<showNextProps> = ({showNext, progress}) => {
+const Question5: React.FC<showNextProps> = ({showNext, progress,budget}) => {
     return (
         <Col>
             <Col xs={12}>
@@ -24,31 +25,36 @@ const Question5: React.FC<showNextProps> = ({showNext, progress}) => {
             <Col xs={12}>
 
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q5" id="q5"
+                           onChange={() => budget("Under $500K")}/>
                     <label>
                         Under $500K
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q5" id="q5"
+                           onChange={() => budget("$500K-$1m")}/>
                     <label>
                         $500K to $1 Million
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q5" id="q5"
+                           onChange={() => budget("$1m-$1.5m")}/>
                     <label>
                         $1 Million to $1.5 Million
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q5" id="q5"
+                           onChange={() => budget("$1.5m-$2m")}/>
                     <label>
                         $1.5 Million to $2 Million
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q5" id="q5"
+                           onChange={() => budget("Over $2m")}/>
                     <label>
                         Over $2 Million
                     </label>

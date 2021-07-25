@@ -3,11 +3,13 @@ import {Col} from "react-bootstrap";
 import Action from "../DisplayAction/Action";
 
 type showNextProps = {
-    showNext :(value:boolean) => void;
-    progress :(value:number)=> void;
+    showNext: (value: boolean) => void;
+    progress: (value: number) => void;
+    area: (value: string) => void;
 }
-const Question3 :React.FC<showNextProps> = ({showNext , progress}) =>{
-    return(
+const Question3: React.FC<showNextProps> = ({showNext, progress, area}) => {
+
+    return (
         <Col>
             <Col xs={12}>
                 <h1 className="qHeader">
@@ -23,43 +25,50 @@ const Question3 :React.FC<showNextProps> = ({showNext , progress}) =>{
             <Col xs={12}>
 
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                        <label>
-                            North Bay Area
-                        </label>
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("North Bay Area")}/>
+                    <label>
+                        North Bay Area
+                    </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                        <label >
-                            South Bay Area
-                        </label>
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("South Bay Area")}/>
+                    <label>
+                        South Bay Area
+                    </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                        <label >
-                            East Bay Area
-                        </label>
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("Oakland, Berkeley, Walnut Creek or Richmond")}/>
+                    <label>
+                        East Bay Area
+                    </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                        <label >
-                            Los Angeles Metro Area
-                        </label>
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("Los Angeles")}/>
+                    <label>
+                        Los Angeles Metro Area
+                    </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                    <label >
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("Bahamas")}/>
+                    <label>
                         Bahamas
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
-                    <label >
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("Austin")}/>
+                    <label>
                         Austin Metro Area
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q3" id="q3"
+                           onChange={() => area("Others")}/>
                     <label>
                         Others
                     </label>
@@ -68,12 +77,10 @@ const Question3 :React.FC<showNextProps> = ({showNext , progress}) =>{
             </Col>
 
             <Col xs={12} className="d-flex pt-4">
-                <Action showNext={showNext} progressIn={3} progress={progress} />
+                <Action showNext={showNext} progressIn={3} progress={progress}/>
             </Col>
 
         </Col>
-
-
 
 
     );

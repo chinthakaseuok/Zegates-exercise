@@ -5,8 +5,9 @@ import Action from "../DisplayAction/Action";
 type showNextProps = {
     showNext :(value:boolean) => void;
     progress :(value:number)=> void;
+    land: (value: string) => void;
 }
-const Question4 : React.FC<showNextProps> = ({showNext , progress}) =>{
+const Question4 : React.FC<showNextProps> = ({showNext , progress, land}) =>{
 
     return(
         <Col>
@@ -25,13 +26,15 @@ const Question4 : React.FC<showNextProps> = ({showNext , progress}) =>{
             <Col xs={12}>
 
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q4" id="q4"
+                           onChange={() => land("need to buy land")}/>
                     <label>
                         I need to buy land.
                     </label>
                 </Col>
                 <Col className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault"/>
+                    <input className="form-check-input" type="radio" name="q4" id="q4"
+                           onChange={() => land("I have Land")}/>
                     <label >
                         I already have existing land to build on.
                     </label>
