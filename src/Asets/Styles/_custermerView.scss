@@ -7,13 +7,34 @@
   margin-left: 15%;
 }
 
-
 .sidebarR{
   height: 100vh;
   right: 0;
-
+  background-color: #ebeae4;
 }
+
 .sidebar{
   height: 30em;
   margin-top: 10%;
+}
+
+.summery{
+  margin-top: 30vh;
+
+  .summeryHead{
+    color: black;
+    font-size: 0.7em;
+    font-weight:normal;
+  }
+  .tag{
+    color: #898d93;
+    font-size: 0.6em;
+  }
+  .hr{
+    color: black;
+  }
+  .tagValue{
+    font-size: 0.6em;
+    padding-bottom: 0;
+  }
 }
