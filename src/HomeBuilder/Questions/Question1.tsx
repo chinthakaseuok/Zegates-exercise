@@ -4,12 +4,24 @@ import {Col} from "react-bootstrap";
 type showNextProps = {
     showNext: (value: boolean) => void;
     progress: (value: number) => void;
+    progressIn : number;
 }
 
-const Question1: React.FC<showNextProps> = ({showNext, progress}) => {
+const Question1: React.FC<showNextProps> = ({showNext, progress, progressIn}) => {
+
+    const handleAnswerGiven = () =>{
+        if(progressIn > 1){
+            progress(progressIn);
+        }
+        else {
+            progress(2);
+        }
+    }
+
 
     return (
         <Col>
+            <p id="1"/>
             <Col xs={12}>
                 <h1 className="qHeader">
                     What brings you <br/> to our site?
@@ -23,9 +35,13 @@ const Question1: React.FC<showNextProps> = ({showNext, progress}) => {
             <Col xs={12}>
                 <h5 className="answer" onClick={() => {
                     showNext(true);
-                    progress(2)
+                    handleAnswerGiven();
                 }}>I'm exploring building a home</h5>
-                <h5 className="answer">I'd like to partner with home bound</h5>
+                <h5 className="answer">
+                    <a href="https://www.homebound.com/trade-partners" className="q1Link">I'd like to partner with home bound
+                    </a>
+                </h5>
+                <p id="2"/>
             </Col>
         </Col>
 

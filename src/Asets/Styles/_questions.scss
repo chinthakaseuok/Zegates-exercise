@@ -2,6 +2,13 @@
 .qHeader{
   margin-top: 10%;
 }
+.q1Link{
+  text-decoration: none;
+  color: white;
+  &:hover{
+    color: white;
+  };
+}
 .Q1A{
   background-color: black;
   cursor: pointer;
