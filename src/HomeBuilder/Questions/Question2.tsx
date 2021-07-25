@@ -7,7 +7,7 @@ type showNextProps = {
     progress: (value: number) => void;
     progressIn: number;
 }
-const Question2: React.FC<showNextProps> = ({showNext, progress}) => {
+const Question2: React.FC<showNextProps> = ({showNext, progress,progressIn}) => {
 
     return (
         <Col>
@@ -15,6 +15,7 @@ const Question2: React.FC<showNextProps> = ({showNext, progress}) => {
                 <h1 className="qHeader">
                     We'd love to learn more <br/>
                     about your project? </h1>
+
             </Col>
             <Col xs={12}>
                 <h6 className="my-5 pt-5">
@@ -22,10 +23,10 @@ const Question2: React.FC<showNextProps> = ({showNext, progress}) => {
                 </h6>
             </Col>
             <Col xs={12} className="d-flex">
-                <Action showNext={showNext} progressIn={2} progress={progress}/>
+                <Action showNext={showNext} progressIn={progressIn} qNumber = {2} progress={progress} valueGiven={"given"}/>
 
             </Col>
-
+            <p id="3"/>
 
         </Col>
 

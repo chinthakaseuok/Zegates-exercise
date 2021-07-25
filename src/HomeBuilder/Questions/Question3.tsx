@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Col} from "react-bootstrap";
 import Action from "../DisplayAction/Action";
 
@@ -6,10 +6,17 @@ type showNextProps = {
     showNext: (value: boolean) => void;
     progress: (value: number) => void;
     area: (value: string) => void;
+    progressIn : number;
 }
-const Question3: React.FC<showNextProps> = ({showNext, progress, area}) => {
+const Question3: React.FC<showNextProps> = ({showNext, progress, area , progressIn}) => {
 
+    const [value , setValue ] = useState("");
+    const handleArea= (val : string) =>{
+        area(val);
+        setValue("given");
+    }
     return (
+
         <Col>
             <Col xs={12}>
                 <h1 className="qHeader">
@@ -26,49 +33,49 @@ const Question3: React.FC<showNextProps> = ({showNext, progress, area}) => {
 
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("North Bay Area")}/>
+                           onChange={() => handleArea("North Bay Area")}/>
                     <label>
                         North Bay Area
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("South Bay Area")}/>
+                           onChange={() => handleArea("South Bay Area")}/>
                     <label>
                         South Bay Area
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("Oakland, Berkeley, Walnut Creek or Richmond")}/>
+                           onChange={() => handleArea("Oakland, Berkeley, Walnut Creek or Richmond")}/>
                     <label>
                         East Bay Area
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("Los Angeles")}/>
+                           onChange={() => handleArea("Los Angeles")}/>
                     <label>
                         Los Angeles Metro Area
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("Bahamas")}/>
+                           onChange={() => handleArea("Bahamas")}/>
                     <label>
                         Bahamas
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("Austin")}/>
+                           onChange={() => handleArea("Austin")}/>
                     <label>
                         Austin Metro Area
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q3" id="q3"
-                           onChange={() => area("Others")}/>
+                           onChange={() => handleArea("Other")}/>
                     <label>
                         Others
                     </label>
@@ -77,7 +84,8 @@ const Question3: React.FC<showNextProps> = ({showNext, progress, area}) => {
             </Col>
 
             <Col xs={12} className="d-flex pt-4">
-                <Action showNext={showNext} progressIn={3} progress={progress}/>
+                <Action showNext={showNext} progressIn={progressIn} qNumber = {3} progress={progress} valueGiven={value}/>
+                <p id="4"/>
             </Col>
 
         </Col>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Col} from "react-bootstrap";
 import Action from "../DisplayAction/Action";
 
@@ -6,9 +6,15 @@ type showNextProps = {
     showNext :(value:boolean) => void;
     progress :(value:number)=> void;
     land: (value: string) => void;
+    progressIn:number
 }
-const Question4 : React.FC<showNextProps> = ({showNext , progress, land}) =>{
+const Question4 : React.FC<showNextProps> = ({showNext , progress, land , progressIn}) =>{
 
+    const [value , setValue ] = useState("");
+    const handleArea= (val : string) =>{
+        land(val);
+        setValue("given");
+    }
     return(
         <Col>
             <Col xs={12}>
@@ -27,14 +33,14 @@ const Question4 : React.FC<showNextProps> = ({showNext , progress, land}) =>{
 
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q4" id="q4"
-                           onChange={() => land("need to buy land")}/>
+                           onChange={() => handleArea("need to buy land")}/>
                     <label>
                         I need to buy land.
                     </label>
                 </Col>
                 <Col className="form-check">
                     <input className="form-check-input" type="radio" name="q4" id="q4"
-                           onChange={() => land("I have Land")}/>
+                           onChange={() => handleArea("I have Land")}/>
                     <label >
                         I already have existing land to build on.
                     </label>
@@ -43,7 +49,8 @@ const Question4 : React.FC<showNextProps> = ({showNext , progress, land}) =>{
             </Col>
 
             <Col xs={12} className="d-flex pt-4">
-                <Action showNext={showNext} progressIn={4} progress={progress} />
+                <Action showNext={showNext} progressIn={progressIn} qNumber = {4} progress={progress} valueGiven={value} />
+                <p id="5"/>
             </Col>
         </Col>
 
